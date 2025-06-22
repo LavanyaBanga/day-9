@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //ques1
+        function setAlarm(time, message) {
+  let now = new Date();
+  let alarmTime = new Date(time);
+
+  let delay = alarmTime - now;
+
+  if (delay < 0) {
+    console.log("Time already passed!");
+    return;
+  }
+
+  setTimeout(() => {
+    console.log(" Alarm: " + message);
+  }, delay);
+}
+
+
+setAlarm("2025-06-22T18:40:00", "Wake up and code!");
+
+//ques2
+function calculateTax(amount, ...percentages) {
+  let totalTax = 0;
+  for (let p of percentages) {
+    totalTax += (amount * p) / 100;
+  }
+  return amount + totalTax;
+}
+//q3
+function countdown(n) {
+  if (n <= 0) {
+    console.log("🚀 Blast Off!");
+    return;
+  }
+
+  console.log(n);
+  setTimeout(() => countdown(n - 1), 1000);
+}
+
+
+countdown(5);
+
+//ques4
+function isEven(n) {
+  n = Math.abs(n);
+  if (n === 0) return true;
+  if (n === 1) return false;
+  return isEven(n - 2);
+}
+console.log(isEven(10)); 
+console.log(isEven(13)); 
+
+
+//q5
+function calculate(a, b, operation) {
+  return operation(a, b);
+}
+
+
+const add = (x, y) => x + y;
+const multiply = (x, y) => x * y;
+
+console.log(calculate(4, 5, add));       
+console.log(calculate(4, 5, multiply));   
+
+    </script>
+</body>
+</html>
